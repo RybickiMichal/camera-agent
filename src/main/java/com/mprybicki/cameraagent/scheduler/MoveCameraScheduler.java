@@ -1,18 +1,21 @@
 package com.mprybicki.cameraagent.scheduler;
 
 import com.mprybicki.cameraagent.model.PanTiltZoom;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
+@AllArgsConstructor
 @Component
 @Slf4j
 public class MoveCameraScheduler {
 
-    private PanTiltZoom actualPanTiltZoom = new PanTiltZoom(0.0, 0.0, 0.0);
-    private Random random = new Random();
+    private Random random;
+
+    private static PanTiltZoom actualPanTiltZoom = new PanTiltZoom(0.0, 0.0, 0.0);
 
     //TODO move ms value to properties
     @Scheduled(fixedRate = 15000)
