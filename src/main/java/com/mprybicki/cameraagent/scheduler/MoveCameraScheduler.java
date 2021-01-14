@@ -15,18 +15,18 @@ public class MoveCameraScheduler {
     private Random random = new Random();
 
     //TODO move ms value to properties
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 15000)
     public void MoveCamera() {
-        actualPanTiltZoom = new PanTiltZoom(generateRandomDouble(0.0,360.0),
-                generateRandomDouble(0.0,360.0),generateRandomDouble(0.0,30.0));
+        actualPanTiltZoom = new PanTiltZoom(generateRandomDouble(0.0, 360.0),
+                generateRandomDouble(0.0, 360.0), generateRandomDouble(0.0, 30.0));
         log.info("Camera has changed position. New is " + actualPanTiltZoom.toString());
     }
 
-    public PanTiltZoom getActualPanTiltZoom(){
+    public PanTiltZoom getActualPanTiltZoom() {
         return actualPanTiltZoom;
     }
 
-    private Double generateRandomDouble(Double rangeMin, Double rangeMax){
+    private Double generateRandomDouble(Double rangeMin, Double rangeMax) {
         return rangeMin + (rangeMax - rangeMin) * random.nextDouble();
     }
 }
