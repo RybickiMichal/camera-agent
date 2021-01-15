@@ -17,8 +17,7 @@ public class MoveCameraScheduler {
 
     private static PanTiltZoom actualPanTiltZoom = new PanTiltZoom(0.0, 0.0, 0.0);
 
-    //TODO move ms value to properties
-    @Scheduled(fixedRate = 15000)
+    @Scheduled(fixedRateString = "${scheduler.camera.move.fixed.rate}")
     public void MoveCamera() {
         actualPanTiltZoom = new PanTiltZoom(generateRandomDouble(0.0, 360.0),
                 generateRandomDouble(0.0, 360.0), generateRandomDouble(0.0, 30.0));
