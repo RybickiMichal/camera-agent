@@ -4,26 +4,19 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @Getter
 @ToString
-public class PanTiltZoom {
+public class PositionData {
 
-    @Min(0)
-    @Max(360)
     @NotNull
-    private Double pan;
+    double lat;
 
-    @Min(0)
-    @Max(360)
     @NotNull
-    private Double tilt;
+    double lon;
 
-    @Min(0)
     @NotNull
-    private Double zoom;
+    double altitude;
 }
